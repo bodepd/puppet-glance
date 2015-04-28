@@ -74,7 +74,8 @@ class glance::keystone::auth(
   $tenant              = 'services',
   $public_protocol     = 'http',
   $admin_protocol      = 'http',
-  $internal_protocol   = 'http'
+  $internal_protocol   = 'http',
+  $service_description = 'OpenStack Image Service',
 ) {
 
   if $service_name == undef {
@@ -92,7 +93,7 @@ class glance::keystone::auth(
     configure_user_role => $configure_user_role,
     configure_endpoint  => $configure_endpoint,
     service_type        => $service_type,
-    service_description => 'OpenStack Image Service',
+    service_description => $service_description,
     service_name        => $real_service_name,
     region              => $region,
     password            => $password,
